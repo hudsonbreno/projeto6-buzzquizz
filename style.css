@@ -84,12 +84,13 @@
   flex-direction: column;
   justify-content: end;
   cursor: pointer;
+  word-break: break-all;
 }
 
 .overlay h2 {
   font-size: 19px;
   font-weight: 400;
-  color: #fff;
+  color: #FFF;
   line-height: 22px;
 }
 
