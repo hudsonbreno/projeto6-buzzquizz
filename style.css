@@ -1,3 +1,6 @@
+body{
+  background-color: #FAFAFA;
+}
 .first-screen-container {
   max-width: 1100px;
   margin: 180px auto;
@@ -34,6 +37,7 @@
   font-weight: 400;
   padding: 10px 25px;
   cursor: pointer;
+  width: 154px;
 }
 
 .button-create-quizz-container button:hover {
@@ -94,6 +98,65 @@
   line-height: 22px;
 }
 
+.screen-create-quizz{
+margin-top:111px;
+text-align: center;
+}
+
+.hidden{
+  display: none;
+}
+
+.title-create{
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #000000;
+  margin-bottom: 29px;
+}
+
+.first-question{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  box-shadow: 0px 0px 10px 0px #0000000D;
+  padding-top: 12px;
+  padding-bottom: 24px;
+}
+
+.first-question input{
+  margin-top: 9px;
+  height: 46px;
+  width: 80%;
+  display: flex;
+  border: 1px solid #D1D1D1;
+  border-radius: 5px;
+}
+
+.first-question input::placeholder{
+  color: #BABABA;
+  padding-left: 14px;
+  font-size: 19px;
+}
+
+button{
+  height: 54px;
+  width: 323px;
+  margin-top: 29px;
+  background-color: #ec362d;
+  border: 1px solid #ec362d;
+  color: #FFF5F4;
+  border-radius: 15px;
+  font-size: 21px;
+  font-weight: 400;
+  padding: 10px 25px;
+}
+
+
 @media screen and (max-width: 1100px) {
     .first-screen-container {
         margin: 110px auto;
@@ -122,5 +185,9 @@
     .quizz {
         width: 340px;
         height: 181px;
+    }
+
+    button{
+      font-size: 18px;
     }
 }

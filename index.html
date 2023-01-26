@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,8 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="./globals.css" />
+    <link rel="stylesheet" href="/style.css" />
     <title>Buzz Quizz!</title>
   </head>
   <body>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="button-create-quizz-container">
-          <button>Criar Quizz</button>
+          <button onclick='createQuizz()'>Criar Quizz</button>
         </div>
       </div>
       <!-- Create a quizz Container End-->
@@ -52,7 +52,18 @@
       <!-- All Quizzes Container End -->
     </div>
     <!-- First Screen Container End-->
-
+    <!-- Screen Create Quizz-->
+    <div class="screen-create-quizz hidden">
+      <h1 class="title-create">Comece pelo começo</h1>
+      <div class="first-question">
+        <input type="text" class="title-quizz" placeholder="Título do seu quizz">
+        <input type="text" class="url-img-quizz" placeholder="URL da imagem do seu quizz">
+        <input type="text" class="qtd-quest" placeholder="Quantidade de perguntas do quizz">
+        <input type="text" class="qtd-levels" placeholder="Quantidade de níveis do quizz">
+      </div>
+      <button onclick="nextCreateQuest()" class=""> Prosseguir para criar perguntas</button>
+    </div>
+    <!-- Screen Create Quizz end-->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./script.js"></script>
   </body>

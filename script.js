@@ -26,5 +26,18 @@ function getAllQuizzes() {
     })
 }
 
+function hiddenAll(){
+    let all = document.querySelector(".all-quizzes-container");
+    all.classList.add("hidden");
+    let create = document.querySelector(".screen-create-quizz");
+    create.classList.add("hidden");
+}
+
+function createQuizz(){
+    let firsthidden = document. querySelector(".first-screen-container");
+    firsthidden.classList.add("hidden");
+    let create = document.querySelector(".screen-create-quizz");
+    create.classList.remove("hidden");
+}
 // Running Functions
 getAllQuizzes()
