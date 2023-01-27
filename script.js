@@ -28,24 +28,28 @@ function getAllQuizzes() {
 }
 
 function hiddenquestion(quests){
-    for(i = 2; i <= quests; i++){
+
+    for(i = 1; i <= quests; i++){
         let esse = makequestion.querySelector(".pergunta"+i);
         esse.classList.add("hidden");
-
     }
 }
 
-function showquestion(e){
-    let pai = e.parentNode;
-    console.log(String(pai.classList[1]).substr(7));
 
+function showquestion(e){
+    let quests = document.querySelector(".qtd-quest").value;
+    hiddenquestion(quests);
+    let pai = e.parentNode;
+    let div = document.querySelector('.'+String(pai.classList[1]).substr(7));
+    div.classList.remove("hidden");
 }
 
-function nextCreateQuest(){
+function CreateQuestion(){
+    let quests = document.querySelector(".qtd-quest").value;
     let create = document.querySelector(".screen-create-quizz");
     create.classList.add("hidden");
     makequestion.classList.remove("hidden");
-    let quests = document.querySelector(".qtd-quest").value;
+
     for(i = 1; i <= quests; i++) {
         makequestion.innerHTML +=`
                                 <div class="question-header header-pergunta${i}">
@@ -54,21 +58,33 @@ function nextCreateQuest(){
                                 </div>
                                 <div class="question pergunta${i}">
                                     <input type="text" class="title-question" placeholder="Título do seu quizz"/>
-                                    <input type="text" class="url-img-quizz" placeholder="Cor de fundo da pergunta"/>
+                                    <input type="text" class="corBackground" placeholder="Cor de fundo da pergunta"/>
                                     <h1 class="question-h1">Pergunta correta</h1>
-                                    <input type="text" class="qtd-quest" placeholder="Resposta correta">
-                                    <input type="text" class="qtd-levels" placeholder="URL da imagem">
+                                    <input type="text" class="correct-answer" placeholder="Resposta correta">
+                                    <input type="text" class="correct-url" placeholder="URL da imagem">
                                     <h1 class="question-h1">Pergunta incorretas</h1>
-                                    <input type="text" class="qtd-quest" placeholder="Resposta incorreta 1">
-                                    <input type="text" class="qtd-levels" placeholder="URL da imagem 1">
-                                    <input type="text" class="qtd-quest" placeholder="Resposta incorreta 2">
-                                    <input type="text" class="qtd-levels" placeholder="URL da imagem 2">
-                                    <input type="text" class="qtd-quest" placeholder="Resposta incorreta 3">
-                                    <input type="text" class="qtd-levels" placeholder="URL da imagem 3">
+                                    <input type="text" class="incorrect-answer1" placeholder="Resposta incorreta 1">
+                                    <input type="text" class="incorrect-url1" placeholder="URL da imagem 1">
+                                    <input type="text" class="incorrect-annswer2" placeholder="Resposta incorreta 2">
+                                    <input type="text" class="incorrect-url2" placeholder="URL da imagem 2">
+                                    <input type="text" class="incorrect-answer3" placeholder="Resposta incorreta 3">
+                                    <input type="text" class="incorrect-url3" placeholder="URL da imagem 3">
                                 </div>    
                                 `;
     }
+
     hiddenquestion(quests);
+    let esse = makequestion.querySelector(".pergunta1");
+    esse.classList.remove("hidden");
+}
+
+function nextCreateQuest(){
+    if((validacaotitulo()&&validacaourl()&&validacaoquest()&&validacaolevels())===true){
+        CreateQuestion();
+    } else{
+        alert("Problemao!");
+    }
+
 }
 
 function createQuizz(){
