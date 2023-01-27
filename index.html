@@ -52,18 +52,31 @@
       <!-- All Quizzes Container End -->
     </div>
     <!-- First Screen Container End-->
-    <!-- Screen Create Quizz-->
+
+    <!-- Create Screen Quizz-->
     <div class="screen-create-quizz hidden">
       <h1 class="title-create">Comece pelo começo</h1>
       <div class="first-question">
         <input type="text" class="title-quizz" placeholder="Título do seu quizz">
         <input type="text" class="url-img-quizz" placeholder="URL da imagem do seu quizz">
-        <input type="text" class="qtd-quest" placeholder="Quantidade de perguntas do quizz">
-        <input type="text" class="qtd-levels" placeholder="Quantidade de níveis do quizz">
+        <input type="number" class="qtd-quest" placeholder="Quantidade de perguntas do quizz">
+        <input type="number" class="qtd-levels" placeholder="Quantidade de níveis do quizz">
       </div>
       <button onclick="nextCreateQuest()" class=""> Prosseguir para criar perguntas</button>
     </div>
-    <!-- Screen Create Quizz end-->
+    <!-- Create Screen Quizz End-->
+
+    <!--Question Screen Quizz-->
+    <div class="question-screen-quizz hidden">
+      <h1 class="title-create">Crie suas perguntas</h1>
+      <!--Question Container Quizz-->
+      <div class="question-container">
+      </div>
+      <!--Question Container Quizz End-->
+    </div>
+    
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./script.js"></script>
   </body>

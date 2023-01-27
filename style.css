@@ -1,5 +1,8 @@
 body{
   background-color: #FAFAFA;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 .first-screen-container {
   max-width: 1100px;
@@ -103,9 +106,6 @@ margin-top:111px;
 text-align: center;
 }
 
-.hidden{
-  display: none;
-}
 
 .title-create{
   font-family: 'Roboto';
@@ -143,6 +143,45 @@ text-align: center;
   font-size: 19px;
 }
 
+.question-screen-quizz{
+  margin-top:111px;
+  text-align: center;
+  width: 95%;
+}
+
+.question-header{
+  display: flex;
+  justify-content: space-between;
+}
+
+.question-header ion-icon{
+  font-size:22px;
+  margin-right: 25px;
+}
+.question-h1{
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  color: #000000;
+  text-align: start;
+  margin-left: 17px;
+  margin-bottom: 12px;
+}
+
+.question input{
+  width:95%;
+  height: 46px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 14px;
+}
+
+.question input::placeholder{
+  color: #BABABA;
+  padding-left: 14px;
+}
+
+
 button{
   height: 54px;
   width: 323px;
@@ -156,6 +195,9 @@ button{
   padding: 10px 25px;
 }
 
+.hidden{
+  display: none;
+}
 
 @media screen and (max-width: 1100px) {
     .first-screen-container {
