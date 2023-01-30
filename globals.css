@@ -6,6 +6,10 @@
     transition: all ease-in-out 0.3s;
 }
 
+body {
+    background-color: #FAFAFA;
+}
+
 header {
     position: fixed;
     top: 0;
@@ -21,4 +25,8 @@ header h1 {
     color: #FFF;
     font-size: 37px;
     font-weight: 700;
+}
+
+.hidden {
+    display: none;
 }
