@@ -188,10 +188,11 @@ function CreateFinish() {
   makefinish.classList.remove("hidden");
 
   let titulo = document.querySelector(".title-quizz").value;
+  let urlImg = document.querySelector(".url-img-quizz").value;
 
-  makelevels.innerHTML += `
+  makefinish.innerHTML += `
                             <div class="quizz" style="background-image: url('${
-                              response[i].image
+                              urlImg
                             }');">
                                 <div class="overlay">
                                     <h2>
@@ -203,13 +204,9 @@ function CreateFinish() {
                                     </h2>
                                 </div>
                             </div>
-                            <button onclick="nextCreateFinish()">Finalizar Quizz</button>
+                            <button onclick="Finalizar()">Finalizar Quizz</button>
                             <home onclick="home()">Voltar pra home</home>
                             `;
-
-  hiddenlevels(levels);
-  let esse = makelevels.querySelector(".level1");
-  esse.classList.remove("hidden");
 }
 
 function nextCreateFinish() {
@@ -220,9 +217,15 @@ function nextCreateFinish() {
   }
 }
 
+function Finalizar(){
+  home();
+  alert("Não está finzando de fato")
+}
+
 function home() {
   makefinish.classList.add("hidden");
-  quizzes - area - container.classList.remove("hidden");
+  let home = document.querySelector(".first-screen-container");
+  home.classList.remove("hidden");
 }
 
 // Running Functions

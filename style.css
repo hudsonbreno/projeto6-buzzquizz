@@ -306,14 +306,14 @@ body {
 }
 
 .question-screen-quizz,
-.levels-screen-quizz {
+.levels-screen-quizz, .finish-screen-quizz {
   margin-top: 111px;
   text-align: center;
   width: 95%;
 }
 
 .question-header,
-.levels-header {
+.levels-header, .finish-header {
   display: flex;
   justify-content: space-between;
 }
@@ -324,7 +324,7 @@ body {
   margin-right: 25px;
 }
 .question-h1,
-.levels-h1 {
+.levels-h1, .finish-h1 {
   font-weight: 700;
   font-size: 20px;
   line-height: 23px;

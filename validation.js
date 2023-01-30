@@ -80,7 +80,8 @@ function validarCorrectAnswer(){
 //É obrigatória a inserção da resposta correta e de pelo menos 1 resposta errada. Portanto, é permitido existirem perguntas com só 2 ou 3 respostas em vez de 4.
 
 function validaTituloLevel(){
-    let titulo = document.querySelector(".title-level").value;
+    document.querySelector(".title-levels").value = "jkjkbvuvgukjgbiuvugviufiuljlvvymhchvjmjvklivuy"
+    let titulo = document.querySelector(".title-levels").value;
     if(titulo.length>10){
         return true
     } else {
@@ -99,11 +100,12 @@ function validaPorcentagem(){
 }
 
 function descricaoNivel(){
-    let titulo = document.querySelector(".descricao").value;
+    document.querySelector(".descricao-levels").value = "jkjkbvuvgukjgbiuvugviufiuljlvvymhchvjmjvklivuy"
+    let titulo = document.querySelector(".descricao-levels").value;
     if(titulo.length>30){
         return true
     } else {
-        alert("Título deve ter no minimo 30 caracteres");
+        alert("Descrição deve ter no minimo 30 caracteres");
         return false
     }
 }
