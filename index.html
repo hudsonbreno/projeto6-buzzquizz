@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
   <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -10,8 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/style.css" />
     <link rel="stylesheet" href="./globals.css" />
+    <link rel="stylesheet" href="/style.css" />
     <title>Buzz Quizz!</title>
   </head>
   <body>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="button-create-quizz-container">
-          <button>Criar Quizz</button>
+          <button onclick="createQuizz()">Criar Quizz</button>
         </div>
       </div>
       <!-- Create a quizz Container End-->
@@ -44,25 +44,84 @@
         <!-- All Quizzes Title End-->
 
         <!-- Quizzes Area Container -->
-        <div class="quizzes-area-container">
-            
-        </div>
+        <div class="quizzes-area-container"></div>
         <!-- Quizzes Area Container End -->
       </div>
       <!-- All Quizzes Container End -->
     </div>
     <!-- First Screen Container End-->
 
-
     <!-- Second Screen Container -->
-    <div class="second-screen-container hidden">
-      
-    </div>
+    <div class="second-screen-container hidden"></div>
     <!-- Second Screen Container End -->
 
+    <!-- Create Screen Quizz-->
+    <div class="screen-create-quizz hidden">
+      <h1 class="title-create">Comece pelo começo</h1>
+      <div class="first-question">
+        <input
+          type="text"
+          class="title-quizz"
+          placeholder="Título do seu quizz"
+        />
+        <input
+          type="text"
+          class="url-img-quizz"
+          placeholder="URL da imagem do seu quizz"
+        />
+        <input
+          type="number"
+          class="qtd-quest"
+          placeholder="Quantidade de perguntas do quizz"
+        />
+        <input
+          type="number"
+          class="qtd-levels"
+          placeholder="Quantidade de níveis do quizz"
+        />
+      </div>
+      <button onclick="nextCreateQuest()" class="">
+        Prosseguir para criar perguntas
+      </button>
+    </div>
+    <!-- Create Screen Quizz End-->
 
+    <!--Question Screen Quizz-->
+    <div class="question-screen-quizz hidden">
+      <h1 class="title-create">Crie suas perguntas</h1>
+      <!--Question Container Quizz-->
+      <div class="question-container"></div>
+      <!--Question Container Quizz End-->
+    </div>
+    <!--Question Screen Quizz-->
 
+    <!--Levels Scren Quizz-->
+    <div class="levels-screen-quizz hidden">
+      <h1 class="title-create">Agora, decida os níveis!</h1>
+      <!--Levels Container Quizz-->
+      <div class="question-container"></div>
+      <!--Levels Container Quizz-->
+    </div>
+    <!--Levels Screen Quizz-->
+
+    <!--Finish Scren Quizz-->
+    <div class="finish-screen-quizz hidden">
+      <h1 class="title-create">Agora, decida os níveis!</h1>
+      <!--Finish Container Quizz-->
+      <div class="finish-container"></div>
+      <!--Finish Container Quizz-->
+    </div>
+    <!--Finish Screen Quizz-->
+    <script
+      type="module"
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"
+    ></script>
+    <script
+      nomodule
+      src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"
+    ></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="./validation.js"></script>
     <script src="./script.js"></script>
     <script src="/screens/quizzScreen.js"></script>
   </body>

@@ -1,36 +1,38 @@
 // Global Variables
-let win = 0
-let clicks = 0
-let currentId = null
+let win = 0;
+let clicks = 0;
+let currentId = null;
 let infos;
 
 // Start the quizz the user just clicked
 function startQuizz(id) {
-  const selectedQuizz = axios.get(`https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${id}`)
-  selectedQuizz.then(response => {
-      response = response.data
-      infos = response
-      currentId = id
-    
-      let questions = ``
-      let answers = ``
-      let result; 
-    
-      // Create the answers dinamically and append them on the HTML
-      for(i = 0; i < response.questions.length; i++) {
-        for(j = 0; j < response.questions[i].answers.length; j++) {
-          answers += `
+  const selectedQuizz = axios.get(
+    `https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/${id}`
+  );
+  selectedQuizz.then((response) => {
+    response = response.data;
+    infos = response;
+    currentId = id;
+
+    let questions = ``;
+    let answers = ``;
+    let result;
+
+    // Create the answers dinamically and append them on the HTML
+    for (i = 0; i < response.questions.length; i++) {
+      for (j = 0; j < response.questions[i].answers.length; j++) {
+        answers += `
           <div class="option" onClick="isCorrect(this)" data-answer="${response.questions[i].answers[j].isCorrectAnswer}">
             <img src="${response.questions[i].answers[j].image}">
             <h3>${response.questions[i].answers[j].text}</h3>
           </div>
-          `
-        }
+          `;
       }
+    }
 
-      // Create the questions dinamically and append them on the HTML
-      for(i = 0; i < response.questions.length; i++) {
-        questions += `
+    // Create the questions dinamically and append them on the HTML
+    for (i = 0; i < response.questions.length; i++) {
+      questions += `
         <!-- Question Container -->
       <div class="question-container">
         <!-- Question Header Container -->
@@ -49,14 +51,13 @@ function startQuizz(id) {
 
       </div>
       <!-- Question Container End -->
-        `
-      }
+        `;
+    }
 
-    
-      toggleScreen(homeScreen, secondScreen);
+    toggleScreen(homeScreen, secondScreen);
 
-      // Create the whole page
-      secondScreen.innerHTML += `
+    // Create the whole page
+    secondScreen.innerHTML += `
       <!-- Banner Container -->
     <div class="banner-container" style="background-image: url('${response.image}');">
       <div class="overlay">
@@ -71,43 +72,44 @@ function startQuizz(id) {
 
     </div>
     <!-- Content Container Second Screen End -->
-      `
-  })
+      `;
+  });
 }
 
 // Verify if the clicked element is the correct
 function isCorrect(element) {
   const questionsContainer = element.parentElement;
-  const content_container = document.querySelector('.content-container-second-screen')
+  const content_container = document.querySelector(
+    ".content-container-second-screen"
+  );
 
-  for(i = 0; i < questionsContainer.children.length; i++) {
-    if(questionsContainer.children[i].getAttribute('data-answer') == 'true' ) {
-      questionsContainer.children[i].classList.add('right');
-      questionsContainer.children[i].classList.add('not-choosed');
-      questionsContainer.children[i].removeAttribute('onclick');
+  for (i = 0; i < questionsContainer.children.length; i++) {
+    if (questionsContainer.children[i].getAttribute("data-answer") == "true") {
+      questionsContainer.children[i].classList.add("right");
+      questionsContainer.children[i].classList.add("not-choosed");
+      questionsContainer.children[i].removeAttribute("onclick");
     } else {
-      questionsContainer.children[i].classList.add('wrong');
-      questionsContainer.children[i].classList.add('not-choosed');
-      questionsContainer.children[i].removeAttribute('onclick');
+      questionsContainer.children[i].classList.add("wrong");
+      questionsContainer.children[i].classList.add("not-choosed");
+      questionsContainer.children[i].removeAttribute("onclick");
     }
   }
 
-  if(element.getAttribute('data-answer') == 'true' ) {
-    element.classList.add('right');
-    element.classList.remove('not-choosed');
-    element.removeAttribute('onclick');
-    win++
-
+  if (element.getAttribute("data-answer") == "true") {
+    element.classList.add("right");
+    element.classList.remove("not-choosed");
+    element.removeAttribute("onclick");
+    win++;
   } else {
-    element.classList.add('wrong');
-    element.classList.remove('not-choosed');
-    element.removeAttribute('onclick');
+    element.classList.add("wrong");
+    element.classList.remove("not-choosed");
+    element.removeAttribute("onclick");
   }
 
-  clicks++
+  clicks++;
 
-  if(clicks == infos.questions.length) {
-    result = createResultContainer(infos)
+  if (clicks == infos.questions.length) {
+    result = createResultContainer(infos);
 
     content_container.innerHTML += `
       ${result}
@@ -127,27 +129,27 @@ function isCorrect(element) {
         <!-- Go back Home Button Container End -->
       </div>
       <!-- Finish Quizz Container End -->
-      `
+      `;
   }
 }
 
 // Calculate the result of the user
 function calculateResult(response) {
   const questions = response.questions.length;
-  const right = Math.round((win/questions) * 100);
-  let level = 0
+  const right = Math.round((win / questions) * 100);
+  let level = 0;
 
-  for(i = 0; i < response.levels.length; i++) {
-    if(right >= response.levels[i].minValue) {
-      level = i
+  for (i = 0; i < response.levels.length; i++) {
+    if (right >= response.levels[i].minValue) {
+      level = i;
     }
   }
 
-  const result = {win_rate: right, nivelIndex: level}
-  return result
+  const result = { win_rate: right, nivelIndex: level };
+  return result;
 }
 
-// Creates the result Container 
+// Creates the result Container
 function createResultContainer(response) {
   // Create the Result Dinamically
   const resultQuizz = calculateResult(response);
@@ -179,21 +181,21 @@ function createResultContainer(response) {
     <!-- Result Body End -->
   </div>
   <!-- Result Container End -->
-  `
+  `;
 
-  return result
+  return result;
 }
 
 // Clears all variables
 function clearVariables() {
-  win = 0
-  clicks = 0
+  win = 0;
+  clicks = 0;
   infos = infos;
 }
 
 // Restarts the quizz
 function restartQuizz() {
-  secondScreen.innerHTML = '';
+  secondScreen.innerHTML = "";
   startQuizz(currentId);
   clearVariables();
 }
