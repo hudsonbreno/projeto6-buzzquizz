@@ -10,6 +10,10 @@ body {
   z-index: 1;
 }
 
+.second-screen-container {
+  width: 100%;
+}
+
 .create-quizz-container {
   cursor: pointer;
   width: 100%;

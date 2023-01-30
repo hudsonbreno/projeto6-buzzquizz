@@ -40,7 +40,6 @@ function startQuizz(id) {
           <h2>${response.questions[i].title}</h2>
         </div>
         <!-- Question Header Container End -->
-
         <!-- Question Options Container -->
         <div class="question-options-container">
           
@@ -48,7 +47,6 @@ function startQuizz(id) {
           
         </div>
         <!-- Question Options Container End -->
-
       </div>
       <!-- Question Container End -->
         `;
@@ -67,9 +65,7 @@ function startQuizz(id) {
     <!-- Banner Container End-->
     <!-- Content Container Second Screen -->
     <div class="content-container-second-screen">
-
       ${questions}
-
     </div>
     <!-- Content Container Second Screen End -->
       `;
@@ -113,7 +109,6 @@ function isCorrect(element) {
 
     content_container.innerHTML += `
       ${result}
-
       <!-- Finish Quizz Container -->
       <div class="finish-quizz-container">
         <!-- Restart Quizz Button Container -->
@@ -121,7 +116,6 @@ function isCorrect(element) {
           <button onclick="restartQuizz()">Reiniciar Quizz</button>
         </div>
         <!-- Restart Quizz Button Container End -->
-
         <!-- Go back Home Button Container -->
         <div class="go-back-home-button">
           <button onclick="toggleScreen(secondScreen, homeScreen, isBackHome=true)">Voltar pra home</button>
@@ -163,7 +157,6 @@ function createResultContainer(response) {
       <h2>${resultQuizz.win_rate}% de acerto: ${levelResult.title}</h2>
     </div>
     <!-- Result Header End -->
-
     <!-- Result Body -->
     <div class="result-body">
       <!-- Image Container -->
@@ -171,7 +164,6 @@ function createResultContainer(response) {
         <img src="${levelResult.image}">
       </div>
       <!-- Image Container End -->
-
       <div class="text-container">
         <span>
           ${levelResult.text}
